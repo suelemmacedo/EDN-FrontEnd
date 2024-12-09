@@ -1,0 +1,66 @@
+/* Estilos do corpo */
+body {
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    /* Responsivo */
+    line-height: 1.6;
+    /* Melhor legibilidade */
+    text-align: left;
+    /* Alinhamento */
+    padding: 10px;
+    /* Margem interna */
+    background-color: #F5F5DC;
+    /* Cor de fundo suave e clara */
+}
+
+/* Estilo para ingredientes */
+.ingrediente {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.ingrediente img {
+    width: 50px;
+    /* Tamanho fixo, mas pode ser ajustado com media queries */
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.2s;
+    /* Efeito de transição ao passar o mouse */
+}
+
+.ingrediente img:hover {
+    transform: scale(1.1);
+    /* Aumenta a imagem ao passar o mouse */
+}
+
+/* Estilo para listas não ordenadas */
+ul {
+    list-style-type: none;
+    /* Remove marcadores */
+    padding: 0;
+    /* Remove preenchimento padrão */
+}
+
+/* Estilo para listas ordenadas */
+ol {
+    list-style-type: decimal;
+    /* Estilo de numeração */
+    padding-left: 20px;
+    /* Espaço antes dos itens */
+}
+
+/* Estilo para itens da lista ordenada */
+ol li {
+    margin-bottom: 10px;
+    /* Espaço entre itens */
+}
+
+ol li::marker {
+    color: #ff6347;
+    /* Cor dos números */
+    font-size: 1.2em;
+    /* Tamanho aumentado */
+    font-weight: bold;
+    /* Números em negrito */
+}

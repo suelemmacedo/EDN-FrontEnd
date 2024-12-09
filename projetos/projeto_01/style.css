@@ -1,0 +1,24 @@
+body {
+    background-color: #FA8072;
+    /* Cor de fundo suave */
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    /* Fonte responsiva */
+    line-height: 1.6;
+    /* Aumenta o espaço entre as linhas para melhor leitura */
+    text-align: left;
+    /* Alinhamento à esquerda para legibilidade */
+    padding: 10px;
+    /* Margem interna para evitar que o texto fique colado às bordas */
+}
+
+
+.contatos {
+    text-align: center;
+}
+
+.contatos img {
+    width: 30px;
+    height: 30px;
+}

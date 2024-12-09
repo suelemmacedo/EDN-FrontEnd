@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h2>Cadastro de Pessoas</h2>
+        <form action="#" method="get">
+            <div class="form-group">
+                <label for="name">Nome completo:</label>
+                <input type="text" name="name" id="name" placeholder="Digite aqui seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="birthday">Data de nascimento</label>
+                <input type="date" name="birthday" id="birthday" required>
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmar-senha">Confirmar a senha</label>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" required>
+            </div>
+            <input type="submit" value="Cadastrar" class="submit-btn">
+        </form>
+    </main>
+</body>
+
+</html>

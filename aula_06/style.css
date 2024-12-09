@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f5;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    /* Permite rolagem horizontal em telas pequenas */
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 5px solid #e7e3e3;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+td {
+    color: #555;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.libertadores td:first-child {
+    color: rgb(9, 9, 219);
+    font-weight: bold;
+    text-align: center;
+}
+
+.pre-libertadores td:first-child {
+    color: rgb(0, 230, 230);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.sul-americano td:first-child {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    font-size: 1em;
+}
+
+.legenda {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.libertadores-color,
+.pre-libertadores-color,
+.sul-americana-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 20%;
+}
+
+.libertadores-color {
+    background-color: rgb(9, 9, 219);
+}
+
+.pre-libertadores-color {
+    background-color: rgb(0, 230, 230);
+}
+
+.sul-americana-color {
+    background-color: rgb(1, 90, 1);
+}
+
+/* Melhorias na Responsividade */
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    table {
+        max-width: 100%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .legenda {
+        flex-direction: column;
+    }
+
+    .libertadores-color,
+    .pre-libertadores-color,
+    .sul-americana-color {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+        overflow-x: auto;
+        /* Barra de rolagem em telas pequenas */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+
+    .libertadores-color,
+    .pre-libertadores-color,
+    .sul-americana-color {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    th,
+    td {
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+
+    .libertadores-color,
+    .pre-libertadores-color,
+    .sul-americana-color {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Ajustando o primeiro elemento das colunas para não ficar grande em telas pequenas */
+    .libertadores td:first-child,
+    .pre-libertadores td:first-child,
+    .sul-americano td:first-child {
+        font-size: 1em;
+    }
+}

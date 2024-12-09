@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    /* Inclui padding e borda no cálculo de largura e altura */
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+main {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    /* Maior espaçamento entre os grupos */
+}
+
+label {
+    font-weight: 600;
+    color: #0a407d;
+    margin-bottom: 2px;
+    display: block;
+    /* Garante que o label ocupe toda a largura */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="checkbox"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2882e1;
+    background-color: #e9f5ff;
+    /* Cor de fundo ao focar */
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #2882e1;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0e924b;
+    transform: translateY(-2px);
+    /* Leve animação ao passar o mouse */
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+    /* Restaura ao clicar */
+}
+
+textarea {
+    resize: vertical;
+}
+
+a {
+    color: #2882e1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+
+/* Estilos para telas menores que 768px */
+@media (max-width: 768px) {
+    main {
+        padding: 30px;
+    }
+
+    legend {
+        font-size: 1.5em;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 1em;
+    }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+    main {
+        padding: 20px;
+    }
+
+    legend {
+        font-size: 1.2em;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 0.9em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 0.9em;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        /* Mais espaçamento entre os campos */
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando AJAX com POST</title>
+    <link rel="stylesheet" href="stylePost.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Treinando AJAX com POST</h1>
+        <form id="form">
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+            <div class="campo">
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" id="cargo" required>
+            </div>
+            <button type="button" id="enviar">Enviar</button>
+        </form>
+        <h2>Resposta da API:</h2>
+        <pre id="resposta"></pre>
+
+        <div id="carregando" style="display: none;">Enviando dados...</div>
+    </div>
+
+    <script src="scriptPost.js"></script>
+</body>
+
+</html>

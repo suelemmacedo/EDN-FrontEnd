@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Consulta de Clima</h1>
+    </header>
+    <form>
+        <label for="cidade">Digite o nome da cidade:</label>
+        <input type="text" name="cidade" id="cidade" placeholder="Digite o nome da cidade" required>
+        <button type="submit" id="consultar">Consultar Clima</button>
+    </form>
+    <div id="resultado"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

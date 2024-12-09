@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: 600;
+    color: #0a407d;
+    margin-bottom: 2px;
+    display: block;
+    /* Garante que o label ocupe toda a largura */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2882e1;
+    background-color: #e9f5ff;
+    /* Cor de fundo ao focar */
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #2882e1;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0e924b;
+    transform: translateY(-2px);
+    /* Leve animação ao passar o mouse */
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+    /* Restaura ao clicar */
+}
+
+textarea {
+    resize: vertical;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: 600;
+    color: #0a407d;
+    margin-bottom: 2px;
+    display: block;
+    /* Garante que o label ocupe toda a largura */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2882e1;
+    background-color: #e9f5ff;
+    /* Cor de fundo ao focar */
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #2882e1;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0e924b;
+    transform: translateY(-2px);
+    /* Leve animação ao passar o mouse */
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+    /* Restaura ao clicar */
+}
+
+textarea {
+    resize: vertical;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    main {
+        padding: 30px;
+    }
+
+    input[type="submit"],
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    main {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input[type="submit"],
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 0.9rem;
+    }
+}

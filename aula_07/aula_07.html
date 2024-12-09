@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 - Formulários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <form action="" method="get">
+            <!-- Campo de Nome Completo -->
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <!-- Campo de E-mail -->
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+
+            <!-- Campo de Senha -->
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <!-- Campo de Seleção de Sexo -->
+            <fieldset class="form-group">
+                <legend>Selecione seu sexo:</legend>
+                <div class="radio-group">
+                    <input type="radio" name="sexo" id="feminino" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+
+                    <input type="radio" name="sexo" id="masculino" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                </div>
+            </fieldset>
+
+            <!-- Campo de Seleção de Tecnologias -->
+            <div class="form-group">
+                <p>Selecione as tecnologias que você conhece:</p>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="tecnologia" id="javascript" value="javascript">
+                    <label for="javascript">Javascript</label>
+
+                    <input type="checkbox" name="tecnologia" id="php" value="php">
+                    <label for="php">PHP</label>
+
+                    <input type="checkbox" name="tecnologia" id="python" value="python">
+                    <label for="python">Python</label>
+                </div>
+            </div>
+
+            <!-- Campo de Experiência na Área de Tecnologia -->
+            <div class="form-group">
+                <label for="experiencia">Escreva aqui sua experiência na área de Tecnologia:</label>
+                <textarea name="experiencia" id="experiencia" placeholder="Descreva sua experiência" required rows="3"
+                    cols="50"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="country">País</label>
+                <select name="country" id="">
+                    <option value="brasil">Brasil</option>
+                    <option value="usa">Estados Unidos</option>
+                    <option value="frança">França</option>
+                    <option value="alemanha">Alemanha</option>
+                </select>
+            </div>
+
+            <!-- Botão de Envio -->
+            <div class="form-group">
+                <input type="submit" name="submit" id="submit" value="Enviar">
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+DROP TABLE IF EXISTS entrega;
+DROP TABLE IF EXISTS produto_pedido;
+DROP TABLE IF EXISTS pagamento;
+DROP TABLE IF EXISTS pedido;
+DROP TABLE IF EXISTS produto;
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS tipo_produto;
+DROP TABLE IF EXISTS fornecedor;
+DROP TABLE IF EXISTS funcionario;
+
+CREATE TABLE tipo_produto(
+	id SERIAL PRIMARY KEY,
+	tipo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE fornecedor (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cnpj VARCHAR(14) UNIQUE NOT NULL,
+    contato VARCHAR(50)
+);
+
+CREATE TABLE Categorias (
+    CategoriaID SERIAL PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE SubCategorias (
+	SubCategoriaID SERIAL PRIMARY KEY,
+	CategoriaID INT,
+	Nome VARCHAR(100) NOT NULL,
+ 	FOREIGN KEY (CategoriaID) REFERENCES Categorias(CategoriaID)
+);
+
+CREATE TABLE produto(
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+    categoriaID INT, 
+    subcategoriaID INT,	
+    preco NUMERIC(5, 2) NOT NULL,
+	estoque INT DEFAULT 0,
+	cor VARCHAR(50),   ---          
+	fragrancia VARCHAR(100),  ---   
+	cuidados_especificos TEXT,  --- 
+	tipo_embalagem VARCHAR(100), --- 
+	temporada_disponivel VARCHAR(50), ---
+	tempo_vida VARCHAR(50),
+	fornecedor_id INT,
+	desconto NUMERIC(5, 2) DEFAULT 0.00,
+	FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id),
+	FOREIGN KEY (tipo_produto_id) REFERENCES tipo_produto (id),
+    FOREIGN KEY (CategoriaID) REFERENCES Categorias(CategoriaID), 
+    FOREIGN KEY (SubcategoriaID) REFERENCES SubCategorias(subcategoriaID)
+);
+
+CREATE TABLE cliente (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	cpf VARCHAR(11) UNIQUE NOT NULL, ---
+	email VARCHAR(100),
+	data_cadastro DATE DEFAULT CURRENT_DATE, ---
+	telefone VARCHAR(20), ---
+	endereco VARCHAR(255),
+	data_aniversario DATE, ---
+	preferencias VARCHAR(255), ---
+	cidade VARCHAR(100)
+);
+
+CREATE TABLE pedido (
+	id SERIAL PRIMARY KEY,
+	cliente_id INT NOT NULL,
+	data_pedido DATE NOT NULL,
+	FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+);
+
+CREATE TABLE produto_pedido (
+	id SERIAL PRIMARY KEY,
+	pedido_id INT NOT NULL,
+	produto_id INT NOT NULL,
+	quantidade INT NOT NULL,
+	FOREIGN KEY (pedido_id) REFERENCES pedido(id),
+	FOREIGN KEY (produto_id) REFERENCES produto(id)
+);
+
+CREATE TABLE entrega (
+    id SERIAL PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    data_entrega DATE NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedido(id)
+);
+
+-- Exercícios
+-- 1) Criar pelo menos 3 novas tabelas e fazer seus relacionamentos com tabelas existentes caso necessário
+-- Tabela de Funcionários
+
+CREATE TABLE funcionario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    salario NUMERIC(7, 2) NOT NULL,
+    data_contratacao DATE NOT NULL
+);
+
+-- Tabela de Fornecedores
+-- Movido para cima para não dar conflito no foreign key de produto
+
+-- Tabela de Pagamento
+CREATE TABLE pagamento (
+    id SERIAL PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    valor NUMERIC(7, 2) NOT NULL,
+    data_pagamento DATE NOT NULL,
+    metodo_pagamento VARCHAR(50) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Pendente',
+    FOREIGN KEY (pedido_id) REFERENCES pedido(id)
+);
+
+-- Inserir categorias (tipo_produto)
+INSERT INTO tipo_produto (tipo) VALUES 
+('Flores'), 
+('Plantas'), 
+('Acessórios');
+
+-- Inserir fornecedores
+INSERT INTO fornecedor (nome, cnpj, contato) VALUES 
+('Flores & Cia', '12345678000123', 'contato@florescia.com'),
+('Orquídeas Exóticas', '23456789000123', 'vendas@orquideasexoticas.com'),
+('Plantas do Campo', '34567890000123', 'info@plantasdocampo.com');
+
+-- Inserindo categorias
+INSERT INTO Categorias (Nome) VALUES
+('Flores e Arranjos'),
+('Plantas e Folhagens'),
+('Acessórios e Suprimentos de Jardinagem');
+
+-- Inserindo subcategorias
+INSERT INTO SubCategorias (CategoriaID, Nome) VALUES
+(1, 'Flores de Corte'),
+(1, 'Buquês'),
+(2, 'Plantas Ornamentais'),
+(2, 'Cactos e Suculentas'),
+(3, 'Ferramentas e Equipamentos'),
+(3, 'Adubos e Fertilizantes'),
+(3, 'Vasos Decorativos');
+
+-- Populando a tabela produto
+INSERT INTO produto (nome, preco, categoriaID, subcategoriaID, estoque, cor, fragrancia, cuidados_especificos, tipo_embalagem, temporada_disponivel, tempo_vida, fornecedor_id, desconto) VALUES 
+('Rosa Vermelha', 15.50, 1, 1, 50, 'Vermelha', 'Leve', 'Água diariamente, luz solar moderada', 'Buquê', 'Primavera', '1 semana', 1, 1.50),
+('Orquídea Branca', 75.00, 2, 3, 30, 'Branca', 'Suave', 'Água 1 vez por semana, sombra', 'Vaso', 'Outono', '2-3 meses', 2, 5.00),
+('Girassol', 12.00, 1, 1, 45, 'Amarelo', 'Sem fragrância', 'Regar 2 vezes por semana, pleno sol', 'Buquê', 'Verão', '10 dias', 1, 1.00),
+('Cacto Pequeno', 25.00, 2, 4, 60, 'Verde', 'Sem fragrância', 'Pouca água, pleno sol', 'Vaso', 'Todo o ano', 'Indeterminado', 3, 2.00),
+('Tulipa Roxa', 20.00, 1, 1, 40, 'Roxa', 'Suave', 'Água moderada, meia-sombra', 'Buquê', 'Primavera', '1 semana', 2, 1.50),
+('Samambaia', 30.00, 2, 3, 20, 'Verde', 'Sem fragrância', 'Regar diariamente, sombra', 'Vaso', 'Todo o ano', '6 meses - 1 ano', 3, 3.00),
+('Buquê de Flores Mistas', 45.00, 1, 2, 25, 'Colorido', 'Diversa', 'Trocar água diariamente, meia-sombra', 'Buquê', 'Primavera', '5 dias', 1, 5.00),
+('Kit de Jardinagem', 100.00, 3, 5, 15, 'Verde', 'Sem fragrância', 'Ferramentas de cuidado para plantas', 'Caixa', 'Todo o ano', 'Indeterminado', 1, 10.00),
+('Adubo Orgânico', 35.00, 3, 6, 50, 'Marrom', 'Sem fragrância', 'Ideal para plantas de jardim', 'Saco', 'Todo o ano', '6 meses', 2, 2.50),
+('Vaso Decorativo Médio', 40.00, 3, 7, 40, 'Branco', 'Sem fragrância', 'Vaso decorativo para plantas', 'Peça única', 'Todo o ano', 'Indeterminado', 3, 3.00);
+
+-- Inserir clientes
+INSERT INTO cliente (nome, cpf, email, telefone, cidade, endereco, data_aniversario, preferencias) VALUES 
+('João Silva', '12345678901', 'joao@gmail.com', '11987654321', 'São Paulo', 'Rua das Flores, 123', '1990-05-12', 'Rosas, Vermelho'),
+('Maria Oliveira', '23456789012', 'maria@gmail.com', '21987654321', 'São Paulo', 'Av. Primavera, 456', '1985-07-20', 'Orquídeas, Branco'),
+('Carlos Souza', '34567890123', 'carlos@gmail.com', '31987654321', 'Belo Horizonte', 'Rua dos Girassóis, 789', '1992-10-15', 'Girassóis, Amarelo'),
+('Ana Lima', '45678901234', 'ana@gmail.com', '41987654321', 'Rio de Janeiro', 'Av. das Tulipas, 101', '1988-12-22', 'Tulipas, Roxo'),
+('Paula Andrade', '56789012345', 'paula@gmail.com', '51987654321', 'Vitória', 'Rua das Samambaias, 202', '1995-03-17', 'Samambaias, Verde');
+
+
+-- Inserir pedidos com 1 item em cada pedido
+INSERT INTO pedido (cliente_id, data_pedido) VALUES 
+(1, '2024-10-01'), (2, '2024-10-02'), (3, '2024-10-03'), 
+(4, '2024-10-04'), (5, '2024-10-05'), (1, '2024-10-06'), 
+(2, '2024-10-07'), (3, '2024-10-08'), (4, '2024-10-09'), 
+(5, '2024-10-10');
+
+-- Inserir produto_pedido para pedidos com 1 item
+INSERT INTO produto_pedido (pedido_id, produto_id, quantidade) VALUES 
+(1, 1, 1), (2, 2, 1), (3, 3, 1), (4, 4, 1), (5, 5, 1),
+(6, 6, 1), (7, 7, 1), (8, 8, 1), (9, 9, 1), (10, 10, 1);
+
+-- Inserir pedidos com 2 itens em cada pedido
+INSERT INTO pedido (cliente_id, data_pedido) VALUES 
+(1, '2024-10-11'), (2, '2024-10-12'), (3, '2024-10-13'), 
+(4, '2024-10-14'), (5, '2024-10-15'), (1, '2024-10-16'), 
+(2, '2024-10-17'), (3, '2024-10-18'), (4, '2024-10-19'), 
+(5, '2024-10-20');
+
+-- Inserir produto_pedido para pedidos com 2 itens
+INSERT INTO produto_pedido (pedido_id, produto_id, quantidade) VALUES 
+(11, 1, 1), (11, 2, 1), (12, 3, 1), (12, 4, 1), (13, 5, 1), (13, 6, 1),
+(14, 7, 1), (14, 8, 1), (15, 9, 1), (15, 10, 1), 
+(16, 1, 1), (16, 3, 1), (17, 4, 1), (17, 5, 1), (18, 6, 1), (18, 7, 1),
+(19, 8, 1), (19, 9, 1), (20, 10, 1), (20, 2, 1);
+
+-- Inserir entregas 
+INSERT INTO entrega (pedido_id, data_entrega, status) VALUES
+(1, '2024-10-02', 'Entregue'),
+(2, '2024-10-03', 'Entregue'),
+(3, '2024-10-04', 'Entregue'),
+(4, '2024-10-05', 'Entregue'),
+(5, '2024-10-06', 'Entregue'),
+(6, '2024-10-07', 'Entregue'),
+(7, '2024-10-08', 'Entregue'),
+(8, '2024-10-09', 'Entregue'),
+(9, '2024-10-10', 'Entregue'),
+(10, '2024-10-11', 'Entregue'),
+(11, '2024-10-12', 'Entregue'),
+(12, '2024-10-13', 'Entregue'),
+(13, '2024-10-14', 'Entregue'),
+(14, '2024-10-15', 'Entregue'),
+(15, '2024-10-16', 'Entregue'),
+(16, '2024-10-17', 'Entregue'),
+(17, '2024-10-18', 'Entregue'),
+(18, '2024-10-19', 'Entregue'),
+(19, '2024-10-20', 'Aguardando Entrega'),
+(20, '2024-10-21', 'Aguardando Entrega');
+
+-- Inserir pagamentos 
+INSERT INTO pagamento (pedido_id, valor, data_pagamento, metodo_pagamento, status) VALUES
+(1, 15.50, '2024-10-02', 'Cartão de Crédito', 'Pago'),
+(2, 75.00, '2024-10-03', 'Boleto', 'Pago'),
+(3, 12.00, '2024-10-04', 'Transferência Bancária', 'Pago'),
+(4, 25.00, '2024-10-05', 'Pix', 'Pago'),
+(5, 20.00, '2024-10-06', 'Cartão de Débito', 'Pago'),
+(6, 30.00, '2024-10-07', 'Cartão de Crédito', 'Pago'),
+(7, 45.00, '2024-10-08', 'Boleto', 'Pago'),
+(8, 100.00, '2024-10-09', 'Transferência Bancária', 'Pago'),
+(9, 35.00, '2024-10-10', 'Pix', 'Pago'),
+(10, 40.00, '2024-10-11', 'Cartão de Crédito', 'Pago'),
+(11, 91.50, '2024-10-12', 'Cartão de Débito', 'Pago'),
+(12, 87.00, '2024-10-13', 'Boleto', 'Pago'),
+(13, 55.00, '2024-10-14', 'Transferência Bancária', 'Pago'),
+(14, 145.00, '2024-10-15', 'Pix', 'Pago'),
+(15, 70.00, '2024-10-16', 'Cartão de Crédito', 'Pago'),
+(16, 57.50, '2024-10-17', 'Boleto', 'Pago'),
+(17, 100.00, '2024-10-18', 'Transferência Bancária', 'Pago'),
+(18, 65.00, '2024-10-19', 'Pix', 'Pago'),
+(19, 75.00, '2024-10-20', 'Cartão de Débito', 'Pendente'),
+(20, 80.00, '2024-10-21', 'Cartão de Crédito', 'Pendente');
+

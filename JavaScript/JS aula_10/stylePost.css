@@ -1,0 +1,110 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+h2 {
+    padding: 20px;
+    color: #4e73df;
+}
+
+/* Container principal para o conteúdo */
+.container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Título principal */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo {
+    text-align: left;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4e73df;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    font-size: 1.3rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilo da área de resposta da API */
+#resposta {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #444;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Estilo do indicador de carregamento */
+#carregando {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: bold;
+}
