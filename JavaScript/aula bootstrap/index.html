@@ -2,41 +2,177 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jazz School</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
+        crossorigin="anonymous" />
 </head>
 
 <body>
-    <header class="py-3 border border-light bg-warning">
-        <div class="container d-flex justify-content-between">
-            <a href="/JavaScript/aula bootstrap/index.html">
+    <header class="py-3 border-bottom bg-warning">
+        <div
+            class="container d-flex flex-wrap justify-content-between align-items-center">
+            <!-- Logo -->
+            <a href="./index.html" class="d-block">
                 <img src="/JavaScript/aula bootstrap/Bootstrap/img/logo.svg"
-                    alt="Logo da Jazz School">
+                    alt="logo da Tom's Jazzschool" />
             </a>
-
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a href="#inicio" class="nav-link px-2">Início</a>
-                <a href="#cursos" class="nav-link px-2">Cursos</a>
-                <a href="#eventos" class="nav-link px-2">Eventos</a>
-                <a href="#contatos" class="nav-link px-2">Contatos</a>
+            <!-- Navegação -->
+            <nav class="d-flex flex-wrap align-items-center">
+                <a href="#" class="nav-link px-2">Inicio</a>
+                <a href="#" class="nav-link px-2">Cursos</a>
+                <a href="#" class="nav-link px-2">Eventos</a>
+                <a href="#" class="nav-link px-2">Contatos</a>
             </nav>
-            <a href="#inscreva" class="btn btn-primary">Se
-                inscreva</a>
+
+            <!-- link/botao -->
+            <a href="#"
+                class="btn btn-primary fw-bold rounded-4">Inscreva-se</a>
         </div>
     </header>
 
+    <main>
+        <section class="py-5 bg-light">
+            <div
+                class="container d-flex align-items-center flex-lg-row flex-column-reverse">
+                <div class="text-center text-lg-start">
+                    <h1 class="mt-3">
+                        Crie algo
+                        <span
+                            class="text-primary-emphasis text-decoration-underline">impactante</span>
+                        com música
+                    </h1>
+                    <p class="mt-3 mb-4 lh-sm">
+                        Na nossa escola de Jazz, a música transforma vidas.
+                        Oferecemos uma formação completa em Jazz, com foco em
+                        improvisação, harmonia e criatividade. Nossos
+                        professores experientes te guiarão a explorar novos
+                        horizontes musicais e desenvolver seu talento. Venha
+                        criar, improvisar e se expressar de forma única, seja
+                        para aprimorar suas habilidades ou para se divertir com
+                        a música.
+                    </p>
+                    <a href="#" class="btn btn-primary fw-bold rounded-4">Comece
+                        agora</a>
+                </div>
+                <img src="/JavaScript/aula bootstrap/Bootstrap/img/hero-img.svg"
+                    alt="Banda de jazz tocando" class="img-fluid" />
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container text-center">
+                <div class="row g-4">
+                    <div class="col-md-3 col-sm-6 col-12 d-flex">
+                        <div
+                            class="card border border-light-subtle d-flex flex-column">
+                            <img src="/JavaScript/aula bootstrap/Bootstrap/img/piano.png"
+                                alt="primeiro card" class="card-img-top">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Pianos mans</h5>
+                                <p class="card-text lh-sm">Descubra o som puro e
+                                    envolvente dos nossos pianos. Cada
+                                    instrumento é escolhido para proporcionar
+                                    uma experiência única, com a qualidade e a
+                                    sofisticação que você merece. Se você busca
+                                    um piano que combine elegância e excelente
+                                    performance, os Pianos Mans são a escolha
+                                    perfeita para os amantes da música.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary fw-bold rounded-4 mt-auto">Saiba
+                                    mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-12 d-flex">
+                        <div
+                            class="card border border-light-subtle d-flex flex-column">
+                            <img src="/JavaScript/aula bootstrap/Bootstrap/img/clef.png"
+                                alt="primeiro card" class="card-img-top">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Clef</h5>
+                                <p class="card-text lh-sm">Com a Clef, você
+                                    encontra instrumentos e acessórios de
+                                    qualidade superior, feitos para músicos que
+                                    buscam excelência. Seja para iniciantes ou
+                                    profissionais, nossa linha de produtos traz
+                                    a precisão e o som ideal para cada
+                                    performance. Eleve sua música com a Clef,
+                                    onde a paixão pela arte encontra a perfeição
+                                    sonora.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary fw-bold rounded-4 mt-auto">Saiba
+                                    mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-12 d-flex">
+                        <div
+                            class="card border border-light-subtle d-flex flex-column">
+                            <img src="/JavaScript/aula bootstrap/Bootstrap/img/drums.png"
+                                alt="primeiro card" class="card-img-top">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Drums</h5>
+                                <p class="card-text lh-sm">Explore a energia e
+                                    potência dos nossos kits de bateria,
+                                    projetados para oferecer som, durabilidade e
+                                    precisão. Cada golpe é uma afirmação de
+                                    estilo e técnica, permitindo que você
+                                    expresse sua criatividade com força e
+                                    excelência. Com os Drums, o ritmo é único e
+                                    cada performance se torna inesquecível.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary fw-bold rounded-4 mt-auto">Saiba
+                                    mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-12 d-flex">
+                        <div
+                            class="card border border-light-subtle d-flex flex-column">
+                            <img src="/JavaScript/aula bootstrap/Bootstrap/img/sax.png"
+                                alt="primeiro card" class="card-img-top">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Sax</h5>
+                                <p class="card-text lh-sm">Descubra o poder do
+                                    saxofone, um instrumento que une técnica e
+                                    emoção em cada nota. Com a nossa linha de
+                                    saxofones, você experimenta um som rico e
+                                    envolvente, perfeito para músicos que buscam
+                                    expressão e qualidade. Eleve sua música e
+                                    sinta a liberdade de tocar com um saxofone
+                                    feito para destacar o melhor do seu talento.
+                                </p>
+                                <a href="#"
+                                    class="btn btn-primary fw-bold rounded-4 mt-auto">Saiba
+                                    mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous">
-        </script>
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
